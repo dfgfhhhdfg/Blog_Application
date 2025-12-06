@@ -29,8 +29,6 @@ Routing: React Router
 
 Editor: Rich Text Editor (tinymce) for content creation
 
-githubrepolink :https://github.com/Manish-R007/Blog
-
 📊 Project Status
 
 ✅ 95% Complete – Core functionalities, authentication, post creation/editing, image uploads, and responsive UI are fully functional.
