@@ -80,20 +80,16 @@ function Home() {
         if (!isMounted) return;
         
         if (posts) {
+          // Use all fetched documents (include the current user's posts)
+          // Previously the code filtered out posts created by the current user,
+          // which prevented authored posts from showing on the community feed.
           let filteredPosts = posts.documents;
-          
-          // Only filter out current user's posts if user is logged in
-          if (userData?.$id) {
-            filteredPosts = posts.documents.filter(
-              post => post.userId !== userData.$id
-            )
-          }
-          
+
           // Sort posts by createdAt in descending order (newest first)
           const sortedPosts = filteredPosts.sort((a, b) => {
             return new Date(b.$createdAt) - new Date(a.$createdAt)
           })
-          
+
           setPosts(sortedPosts)
         } else {
           setPosts([])
